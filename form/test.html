@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    // let cat= {
+    //     type:"cat",
+    //     legs: 8,
+    //     tail: true,
+    // }
+
+    // let tiger={
+    //     speed:70,
+    //     type: "cat",
+    //     legs: 8,
+    //     tail: true,
+    // }
+    // let lion={
+    //     speed:80,
+    //     type:"cat",
+    //     legs:true,
+    // }
+
+    // console.log("lion:",lion)
+    // console.log("tiger:",tiger)
+
+    let cat={
+        type:"cat",
+        legs:16,
+        tail:true,
+    }
+
+
+    let tiger=Object.create(cat)
+    tiger.speed=70;
+
+    console.log("tiger:",tiger)
+
+    let lion=Object.create(cat)
+    lion.speed=80;
+    console.log("lion:",lion)
+
+    
+let arr=[1,2,3]
+
+let  arr2=new Array(1,2,3);
+console.log('arr2:', arr2); 
+
+let hobbies= ["dancing" ,"coding"]
+
+Array.prototype.namste=function(value){
+    // console.log("Go to the world!")
+    this.push(value)
+
+}
+
+hobbies.namste( "music")
+hobbies.namste("bhago")
+
+console.log("hobbies:", hobbies)
+</script>

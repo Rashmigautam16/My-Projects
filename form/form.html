@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        width: 100px;
+        height: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form id="form">
+        <input type="url" placeholder="image" id="image" />
+        <input type="text" placeholder="name" id="name" />
+        <input type="number" placeholder="price" id="price" />
+        <input type="submit" />
+      </form>
+    </div>
+    <div id="cont"></div>
+  </body>
+</html>
+<script>
+  document.getElementById("form").addEventListener("submit", function (e) {
+    getdata(e);
+  });
+
+  let arr = JSON.parse(localStorage.getItem("Data")) || [];
+  function getdata(e) {
+    e.preventDefault();
+
+    let form = document.getElementById("form");
+    let img = form.image.value;
+    let name = form.name.value;
+    let price = form.price.value;
+
+    let data = new details(img, name, price);
+
+    arr.push(data);
+    console.log(arr);
+
+    localStorage.setItem("Data", JSON.stringify(arr));
+  }
+
+  function details(img, n, p) {
+    this.image = img;
+    this.name = n;
+    this.price = p;
+  }
+
+  print(arr);
+  console.log(arr + "rrrrr");
+
+  function print(arr) {
+    let cont = document.getElementById("cont");
+
+    arr.forEach(function (el) {
+      let div = document.createElement("div");
+      let img = document.createElement("img");
+      img.src = el.image;
+      let name = document.createElement("h1");
+      name.innerText = el.name;
+      div.append(img, name);
+      cont.append(div);
+      console.log("annnnnnn");
+    });
+  }
+</script>
